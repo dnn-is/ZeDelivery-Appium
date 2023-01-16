@@ -5,12 +5,15 @@ import static br.jp.dandrade.core.DriverFactory.getDriver;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import br.jp.dandrade.core.BasePage;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 
 public class LoginPage extends BasePage {
+	
+
 
 	public String isSalvarEmailEnabled() {
 		return getDriver().findElement(By.xpath("//android.widget.CheckBox//android.view.ViewGroup"))
@@ -22,10 +25,9 @@ public class LoginPage extends BasePage {
 		click(getDriver().findElement(MobileBy.AccessibilityId("E-mail")));
 	}
 
-	
 	public void preencherEmail() {
 		escrever(MobileBy.AccessibilityId("E-mail"), "qualquer");
-		
+
 	}
 
 	public void tapSalvarEmail() {
@@ -33,8 +35,8 @@ public class LoginPage extends BasePage {
 	}
 
 	public void tapBoasVindas() {
-		tapElement(getDriver().findElement(
-				By.xpath(("//android.widget.TextView[contains(text(),'Que bom que você está aqui!')]"))));
+		tapElement(getDriver()
+				.findElement(By.xpath(("//android.widget.TextView[contains(text(),'Que bom que você está aqui!')]"))));
 	}
 
 	public boolean obterMensagemEmailInvalido() {
@@ -46,7 +48,7 @@ public class LoginPage extends BasePage {
 			return false;
 		}
 	}
-	
+
 	public boolean obterMensagemEmailVazio() {
 		List<MobileElement> elementos = getDriver()
 				.findElements(By.xpath("//android.widget.TextView[@text='Email não pode ficar vazio']"));
@@ -57,5 +59,24 @@ public class LoginPage extends BasePage {
 		}
 	}
 
+//	public void realizarScrollUp() {
+//		wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("E-mail")));
+//		scrollUp();
+//	}
+
+	public void realizarLogin() {
+		String email = "fakedennis06@gmail.com";
+		String senha = "@teste123";
+		wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("E-mail")));
+		escrever(MobileBy.AccessibilityId("E-mail"), email);
+		click(getDriver().findElement(By.xpath("//android.widget.TextView[@text='CONTINUAR COM E-MAIL']")));
+		esperar();
+		wait.until(ExpectedConditions.elementToBeClickable((By.xpath("//android.widget.TextView[@text='ENTRAR COM SENHA']"))));
+		click(getDriver().findElement(By.xpath("//android.widget.TextView[@text='ENTRAR COM SENHA']")));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText")));
+		escrever(By.xpath("//android.widget.EditText"), senha);
+		click(getDriver().findElement(By.xpath("//android.widget.TextView[@text='ENTRAR NA CONTA']")));
+
+	}
 
 }

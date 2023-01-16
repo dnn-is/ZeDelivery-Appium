@@ -31,5 +31,12 @@ public class LoginPageTest extends BaseTest {
 		loginPage.tap(600,400);
 		Assert.assertTrue(loginPage.obterMensagemEmailVazio());
 	}
+	
+	@Test
+	public void deveFazerLogin() {
+		loginPage.realizarLogin();
+	}
+	
+	
 
 }
