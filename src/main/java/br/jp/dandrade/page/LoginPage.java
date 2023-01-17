@@ -12,8 +12,6 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 
 public class LoginPage extends BasePage {
-	
-
 
 	public String isSalvarEmailEnabled() {
 		return getDriver().findElement(By.xpath("//android.widget.CheckBox//android.view.ViewGroup"))
@@ -70,13 +68,16 @@ public class LoginPage extends BasePage {
 		wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("E-mail")));
 		escrever(MobileBy.AccessibilityId("E-mail"), email);
 		click(getDriver().findElement(By.xpath("//android.widget.TextView[@text='CONTINUAR COM E-MAIL']")));
-		esperar();
-		wait.until(ExpectedConditions.elementToBeClickable((By.xpath("//android.widget.TextView[@text='ENTRAR COM SENHA']"))));
+
+		wait.until(ExpectedConditions
+				.elementToBeClickable((By.xpath("//android.widget.TextView[@text='ENTRAR COM SENHA']"))));
 		click(getDriver().findElement(By.xpath("//android.widget.TextView[@text='ENTRAR COM SENHA']")));
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText")));
 		escrever(By.xpath("//android.widget.EditText"), senha);
 		click(getDriver().findElement(By.xpath("//android.widget.TextView[@text='ENTRAR NA CONTA']")));
-
+		click(getDriver().findElement(MobileBy.AccessibilityId(
+				"Casa Rua Francisca Dantas Souza, 387  - Jardim Cidade Universitária, João Pessoa - PB")));
+		click(getDriver().findElement(By.xpath("//android.widget.TextView[@text='CONTINUAR']")));
 	}
 
 }

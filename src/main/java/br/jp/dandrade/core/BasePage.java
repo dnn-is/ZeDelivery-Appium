@@ -18,7 +18,7 @@ import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
 
 public class BasePage {
-	public static WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+	public WebDriverWait wait = new WebDriverWait(getDriver(), 10);
 
 	public void escrever(By by, String texto) {
 
@@ -31,7 +31,7 @@ public class BasePage {
 	
 	public void esperar() {
 		try {
-			Thread.sleep(4000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -49,7 +49,7 @@ public class BasePage {
 	}
 
 	public void click(MobileElement element) {
-		wait.until(ExpectedConditions.visibilityOf(element));
+		wait.until(ExpectedConditions.elementToBeClickable(element));
 		element.click();
 	}
 	
