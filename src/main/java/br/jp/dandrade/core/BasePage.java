@@ -29,9 +29,9 @@ public class BasePage {
 		element.sendKeys(texto);
 	}
 	
-	public void esperar() {
+	public void esperar(int tempo) {
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(tempo);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
