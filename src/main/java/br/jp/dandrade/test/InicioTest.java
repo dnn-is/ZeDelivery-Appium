@@ -1,5 +1,6 @@
 package br.jp.dandrade.test;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,9 +21,15 @@ public class InicioTest extends BaseTest {
 	}
 	
 	@Test
-	public void deveClicarBrahma(){
+	public void deveVerificarQuantidadeAdicionada(){
 		inicio.selecionarBrahma();
 		produto.clicarCincoVezesAddProduto();
+		produto.clicarCincoVezesSubProduto();
+		produto.clicarAdd6Unidades();
+		produto.clicarAdd12Unidades();
+		produto.clicarAdd15Unidades();
+		Assert.assertTrue(produto.obterQuantidade().contains("34"));
+		produto.clicarAdicionar();
 	}
 	
 

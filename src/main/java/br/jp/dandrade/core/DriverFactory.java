@@ -53,6 +53,7 @@ public class DriverFactory {
 		}
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		WebDriverWait wait = new WebDriverWait(driver, 50);
+		wait.until(ExpectedConditions.visibilityOf(getDriver().findElement(By.id("com.android.permissioncontroller:id/permission_deny_button"))));
 		driver.findElement(By.id("com.android.permissioncontroller:id/permission_deny_button")).click();
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//android.widget.TextView[@text='ENTENDI']"))));
 		driver.findElement(By.xpath("//android.widget.TextView[@text='ENTENDI']")).click();

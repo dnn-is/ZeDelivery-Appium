@@ -57,20 +57,13 @@ public class LoginPage extends BasePage {
 		}
 	}
 
-//	public void realizarScrollUp() {
-//		wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("E-mail")));
-//		scrollUp();
-//	}
-
 	public void realizarLogin() {
 		String email = "fakedennis06@gmail.com";
 		String senha = "@teste123";
 		wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("E-mail")));
 		escrever(MobileBy.AccessibilityId("E-mail"), email);
 		click(getDriver().findElement(By.xpath("//android.widget.TextView[@text='CONTINUAR COM E-MAIL']")));
-
-		wait.until(ExpectedConditions
-				.elementToBeClickable((By.xpath("//android.widget.TextView[@text='ENTRAR COM SENHA']"))));
+		esperar(3000);
 		click(getDriver().findElement(By.xpath("//android.widget.TextView[@text='ENTRAR COM SENHA']")));
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText")));
 		escrever(By.xpath("//android.widget.EditText"), senha);
