@@ -5,12 +5,16 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.touch.offset.PointOption;
 
 public class DriverFactory {
 
@@ -53,7 +57,16 @@ public class DriverFactory {
 		}
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		WebDriverWait wait = new WebDriverWait(driver, 50);
-		wait.until(ExpectedConditions.visibilityOf(getDriver().findElement(By.id("com.android.permissioncontroller:id/permission_deny_button"))));
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//android.widget.RelativeLayout//android.widget.ImageView"))));
+		new TouchAction<>(driver).tap(PointOption.point(new Point(537, 971))).perform();
+		
+		MobileElement time = (MobileElement) driver.findElement(MobileBy.AndroidUIAutomator(
+		        "new UiScrollable(new UiSelector().scrollable(true))" +
+		         ".scrollIntoView(new UiSelector().text(\"Fluminense\"))"));
+		time.click();
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//android.widget.RelativeLayout//android.widget.ImageView"))));
+		new TouchAction<>(driver).tap(PointOption.point(new Point(525, 1114))).perform();
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("com.android.permissioncontroller:id/permission_deny_button"))));
 		driver.findElement(By.id("com.android.permissioncontroller:id/permission_deny_button")).click();
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//android.widget.TextView[@text='ENTENDI']"))));
 		driver.findElement(By.xpath("//android.widget.TextView[@text='ENTENDI']")).click();

@@ -22,6 +22,11 @@ public class LoginPage extends BasePage {
 		tapElement(getDriver().findElement(MobileBy.AccessibilityId("E-mail")));
 		click(getDriver().findElement(MobileBy.AccessibilityId("E-mail")));
 	}
+	
+	public void clicarCampoSenha() {
+		tapElement(getDriver().findElement(MobileBy.AccessibilityId("Senha")));
+		click(getDriver().findElement(MobileBy.AccessibilityId("Senha")));
+	}
 
 	public void preencherEmail() {
 		escrever(MobileBy.AccessibilityId("E-mail"), "qualquer");
@@ -71,6 +76,20 @@ public class LoginPage extends BasePage {
 		click(getDriver().findElement(MobileBy.AccessibilityId(
 				"Casa Rua Francisca Dantas Souza, 387  - Jardim Cidade Universitária, João Pessoa - PB")));
 		click(getDriver().findElement(By.xpath("//android.widget.TextView[@text='CONTINUAR']")));
+	}
+	
+	public void chegarCampoSenha() {
+		String email = "fakedennis06@gmail.com";
+		wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("E-mail")));
+		escrever(MobileBy.AccessibilityId("E-mail"), email);
+		click(getDriver().findElement(By.xpath("//android.widget.TextView[@text='CONTINUAR COM E-MAIL']")));
+		esperar(4000);
+		click(getDriver().findElement(By.xpath("//android.widget.TextView[@text='ENTRAR COM SENHA']")));
+	}
+	
+	public String obterMensagemCampoSenhaVazio() {
+		MobileElement campoSenha = getDriver().findElement(By.xpath("//android.widget.EditText//following-sibling::android.view.ViewGroup//android.widget.TextView[1]"));
+		return campoSenha.getText();
 	}
 
 }
