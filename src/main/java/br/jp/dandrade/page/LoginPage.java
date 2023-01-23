@@ -65,8 +65,9 @@ public class LoginPage extends BasePage {
 		wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("E-mail")));
 		escrever(MobileBy.AccessibilityId("E-mail"), email);
 		click(getDriver().findElement(By.xpath("//android.widget.TextView[@text='CONTINUAR COM E-MAIL']")));
-		esperar(3000);
-		click(getDriver().findElement(By.xpath("//android.widget.TextView[@text='ENTRAR COM SENHA']")));
+		esperar(5000);
+		waitToBeCliackable((getDriver().findElement(MobileBy.AccessibilityId("Mensagem de texto (sms)"))));
+		click(getDriver().findElement(MobileBy.AccessibilityId("Mensagem de texto (sms)")));
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText")));
 		escrever(By.xpath("//android.widget.EditText"), senha);
 		click(getDriver().findElement(By.xpath("//android.widget.TextView[@text='ENTRAR NA CONTA']")));

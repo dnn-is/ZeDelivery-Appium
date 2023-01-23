@@ -43,7 +43,15 @@ public class BasePage {
 		new TouchAction<>(getDriver()).tap(TapOptions.tapOptions().withElement(ElementOption.element(element)))
 				.perform();
 	}
-
+	
+	public void waitToBeCliackable(MobileElement element) {
+		wait.until(ExpectedConditions.attributeContains(element, "clickable", "true"));
+	}
+	
+	public void waiToBeVisible(MobileElement element) {
+		wait.until(ExpectedConditions.visibilityOf(element));
+	}
+	
 	public void click(MobileElement element) {
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		element.click();

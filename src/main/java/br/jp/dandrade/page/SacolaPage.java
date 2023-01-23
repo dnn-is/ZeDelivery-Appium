@@ -13,6 +13,7 @@ public class SacolaPage extends BasePage {
 	}
 	
 	public void selecionarFormaPagamento() {
+		waiToBeVisible(getDriver().findElement(MobileBy.AccessibilityId("delete-product")));
 		MobileElement formaDePagamento = (MobileElement) getDriver().findElement(MobileBy.AndroidUIAutomator(
 		        "new UiScrollable(new UiSelector().scrollable(true))" +
 		         ".scrollIntoView(new UiSelector().resourceIdMatches(\".*checkout-action-button.*\"))"));
