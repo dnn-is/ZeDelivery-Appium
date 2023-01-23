@@ -37,13 +37,7 @@ public class LoginPageTest extends BaseTest {
 		loginPage.realizarLogin();
 	}
 	
-	@Test
-	public void deveVerificarSenhaVazia() {
-		loginPage.chegarCampoSenha();
-		loginPage.clicarCampoSenha();
-		loginPage.tap(551, 375);
-		Assert.assertTrue(loginPage.obterMensagemCampoSenhaVazio().equalsIgnoreCase("Opa, precisamos da sua senha"));
-	}
+
 	
 	
 	

@@ -23,10 +23,7 @@ public class LoginPage extends BasePage {
 		click(getDriver().findElement(MobileBy.AccessibilityId("E-mail")));
 	}
 	
-	public void clicarCampoSenha() {
-		tapElement(getDriver().findElement(MobileBy.AccessibilityId("Senha")));
-		click(getDriver().findElement(MobileBy.AccessibilityId("Senha")));
-	}
+	
 
 	public void preencherEmail() {
 		escrever(MobileBy.AccessibilityId("E-mail"), "qualquer");
@@ -87,9 +84,5 @@ public class LoginPage extends BasePage {
 		click(getDriver().findElement(By.xpath("//android.widget.TextView[@text='ENTRAR COM SENHA']")));
 	}
 	
-	public String obterMensagemCampoSenhaVazio() {
-		MobileElement campoSenha = getDriver().findElement(By.xpath("//android.widget.EditText//following-sibling::android.view.ViewGroup//android.widget.TextView[1]"));
-		return campoSenha.getText();
-	}
-
+	
 }
