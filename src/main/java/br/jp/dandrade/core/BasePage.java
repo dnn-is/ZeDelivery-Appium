@@ -17,7 +17,7 @@ public class BasePage {
 	public WebDriverWait wait = new WebDriverWait(getDriver(), 10);
 
 	public void escrever(By by, String texto) {
-
+		wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 		getDriver().findElement(by).sendKeys(texto);
 	}
 	

@@ -44,9 +44,6 @@ public class PagamentoPage extends BasePage {
 		MobileElement finalizarCompra = (MobileElement) getDriver().findElement(MobileBy.AndroidUIAutomator(
 		        "new UiScrollable(new UiSelector().scrollable(true))" +
 		         ".scrollIntoView(new UiSelector().resourceIdMatches(\".*checkout-payment-action-button.*\"))"));
-
-
-		
 		if(finalizarCompra.getAttribute("enabled").equalsIgnoreCase("true")) {
 			return true;
 		}else {

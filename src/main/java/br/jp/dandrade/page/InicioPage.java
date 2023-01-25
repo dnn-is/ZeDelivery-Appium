@@ -15,6 +15,11 @@ public class InicioPage extends BasePage {
 		click(getDriver().findElement(By.xpath("//android.widget.TextView[@text='Perfil']")));
 	}
 	
+	public void selecionarBusca() {
+		click(getDriver().findElement(MobileBy.AccessibilityId("Busca")));
+	}
+	
+	
 	public void selecionarBrahma() {
 		MobileElement brahma = (MobileElement) getDriver().findElement(MobileBy.AndroidUIAutomator(
 		        "new UiScrollable(new UiSelector().scrollable(true))" +
