@@ -60,8 +60,8 @@ public class LoginPage extends BasePage {
 	}
 
 	public void realizarLogin() {
-		String email = "fakedennis06@gmail.com";
-		String senha = "@teste123";
+		String email = "";
+		String senha = "";
 		wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("E-mail")));
 		escrever(MobileBy.AccessibilityId("E-mail"), email);
 		click(getDriver().findElement(By.xpath("//android.widget.TextView[@text='CONTINUAR COM E-MAIL']")));
